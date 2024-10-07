@@ -32,3 +32,85 @@
 | 28   | Gather Ongoing Feedback                   | All Teams                | Continue to collect user feedback for further improvements.   | Send out periodic surveys to users for their thoughts on the app. | SurveyMonkey                  |
 | 29   | Plan for Future Enhancements              | All Teams                | Discuss ideas for new features based on user input.         | Hold brainstorming sessions to prioritize features for the next phase.| Miro for Brainstorming       |
 | 30   | Document the Project                      | All Teams                | Create thorough documentation for future reference.          | Write a project overview, setup instructions, and API documentation.| Markdown Guide                |
+
+
+# Day 1: Kickoff Meeting
+
+## Functions/Tasks
+- **Team Meeting:** Gather all team members for a kickoff meeting.
+- **Define Goals:** Establish clear project goals and objectives.
+- **Assign Roles:** Define specific roles and responsibilities for each team.
+
+## Team Responsible
+- All Teams (Team A, Team B, Team C)
+
+## Tips for Effective Use
+- Create a meeting agenda to ensure all topics are covered.
+- Encourage open communication and feedback from all team members.
+
+## How to Do It
+1. **Schedule the Meeting:** Use Zoom or Google Meet to set up a virtual meeting.
+2. **Prepare the Agenda:** Share the agenda in advance, focusing on project goals, expectations, and role assignments.
+3. **Discussion:** Allow time for each team to present their initial thoughts on the project.
+
+## Resources Needed
+- Video conferencing tools (e.g., Zoom, Google Meet)
+- Google Docs for taking notes during the meeting
+- A shared document to track action items
+
+
+
+
+# Day 2: Requirements Gathering
+## Functions/Tasks
+- **Identify Features:** List the essential features needed for the application (e.g., user login, news feed).
+- **Create User Stories:** Develop user stories to define functionality from the user’s perspective.
+## Team Responsible
+- All Teams (collaboratively)
+## Tips for Effective Use
+- Use clear and simple language to ensure everyone understands the requirements.
+- Document everything clearly for future reference.
+## How to Do It
+1. **Hold a Collaborative Session:** Use Google Docs for real-time writing and collaboration.
+2. **Facilitate Discussion:** Encourage each team to share ideas for features.
+3. **Write User Stories:** Develop user stories such as "As a user, I want to view news articles based on my interests."
+## Resources Needed
+- Google Docs for collaborative writing
+- Access to user story templates or examples online
+
+
+# Day 3: Design UI/UX Mockups
+## Functions/Tasks
+-**Create Wireframes:** Design the layout for key pages (registration, login, news feed).
+-**User Flow:** Map out the navigation process for users within the application.
+## Team Responsible
+- Team A
+## Tips for Effective Use
+- Keep the design simple and user-friendly.
+- Utilize existing templates as a foundation to save time.
+## How to Do It
+1. **Open Figma:** Start a new project for UI mockups.
+2. **Design the Layout:** Use shapes and text boxes to represent different UI elements (buttons, forms, etc.).
+3. **Get Feedback:** Share mockups with other teams and collect their feedback.
+## Resources Needed
+- Figma (https://www.figma.com/) for design
+- Tutorials on using Figma (available on YouTube)
+
+
+# Day 4: Review Designs with Teams
+## Functions/Tasks
+-**Present Mockups:** Showcase the designs created in Figma.
+-**Gather Feedback:** Collect input from other teams to refine the design.
+## Team Responsible
+- All Teams
+## Tips for Effective Use
+- Be open to constructive criticism and suggestions for improvement.
+- Keep feedback focused on usability and functionality.
+## How to Do It
+1. **Schedule a Meeting**: Use video conferencing tools to present the designs.
+2. **Show Each Mockup:** Walk through each design, explaining its purpose and functionality.
+3. **Collect Feedback:** Record comments and suggestions in a shared document for future reference.
+## Resources Needed
+- Video conferencing tools (e.g., Zoom, Google Meet)
+- Figma for sharing designs
+- Google Docs for documenting feedback
