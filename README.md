@@ -1,3 +1,5 @@
+https://www.notion.so/NewsHUB-12bd150d1b28804a8b8dcfe3d06ab4bb?pvs=4
+
 # NewsHub
 
 | Days | Tasks                                     | Team Responsible         | Tips for Effective Use                                         | How to Do It                                                      | Resources                     |
