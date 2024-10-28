@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsHub</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'news/styles.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">NewsHub</h1>
+        
+        <!-- Navigation Links -->
+        <nav class="mb-4">
+            {% if user.is_authenticated %}
+                <a href="{% url 'preferences' %}" class="btn btn-info">Preferences</a>
+                <a href="{% url 'logout' %}" class="btn btn-secondary">Logout</a>
+            {% else %}
+                <a href="{% url 'register' %}" class="btn btn-success">Register</a>
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+            {% endif %}
+        </nav>
+
+        <!-- Preferences Form -->
+        <form method="GET" action="" class="mb-4">
+            <div class="form-group">
+                <label for="category">Preferred Category:</label>
+                <select id="category" name="category" class="form-control">
+                    <option value="" {% if not category %}selected{% endif %}>All News</option>
+                    <option value="Technology" {% if category == "Technology" %}selected{% endif %}>Technology</option>
+                    <option value="Business" {% if category == "Business" %}selected{% endif %}>Business</option>
+                    <option value="Health" {% if category == "Health" %}selected{% endif %}>Health</option>
+                    <option value="Travel" {% if category == "Travel" %}selected{% endif %}>Travel</option>
+                    <option value="Entertainment" {% if category == "Entertainment" %}selected{% endif %}>Entertainment</option>
+                    <option value="Environment" {% if category == "Environment" %}selected{% endif %}>Environment</option>
+                    <option value="Education" {% if category == "Education" %}selected{% endif %}>Education</option>
+                    <option value="Sports" {% if category == "Sports" %}selected{% endif %}>Sports</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+
+        <!-- News Articles -->
+        <div>
+            {% for article in articles %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ article.title }}</h2>
+                        <p class="card-text">{{ article.content }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No articles available for this category.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
