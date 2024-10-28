@@ -20,6 +20,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import UserRegisterForm
 from .models import Article
 from django.contrib.auth.decorators import login_required
+
 from .forms import UserPreferencesForm
 from .models import UserPreferences
 
@@ -85,4 +86,10 @@ def index(request):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+
+@login_required
+def profile(request):
+    return render(request, 'news/profile.html')
+
 
