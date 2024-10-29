@@ -17,9 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from news import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('news.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('admin/show_queries/<int:article_id>/', views.show_queries, name='admin_show_queries'),
 ]
+

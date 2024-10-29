@@ -5,8 +5,9 @@ from .forms import UserRegisterForm, SearchForm, UserPreferencesForm
 from .models import Article, UserPreferences
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-
-
+from django.contrib.admin.views.decorators import staff_member_required
+from django.shortcuts import render, get_object_or_404 
+from .models import Article, Query
 
 def index(request):
     form = SearchForm()
@@ -28,17 +29,18 @@ def index(request):
         else:
             articles = Article.objects.all().order_by('id')
     
-    paginator = Paginator(articles, 5)  # Show 5 articles per page
+    paginator = Paginator(articles, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    
+
     return render(request, 'news/index.html', {
         'page_obj': page_obj, 
         'form': form, 
         'category': category if category else 'All News',
-        'categories': categories
+        'categories': categories,
     })
-    
+
+
 
 def register(request):
     if request.method == 'POST':
@@ -87,4 +89,8 @@ def profile(request):
     return render(request, 'news/profile.html')
 
 
-
+@staff_member_required
+def show_queries(request, article_id):
+    article = get_object_or_404(Article, pk=article_id)
+    queries = Query.objects.filter(article=article)
+    return render(request, 'admin/show_queries.html', {'article': article, 'queries': queries})

@@ -9,6 +9,7 @@ urlpatterns = [
     path('preferences/', views.preferences, name='preferences'),
     path('profile/', views.profile, name='profile'),
     path('logout/', views.logout_view, name='logout'),
-    path('password_change/', include('django.contrib.auth.urls')),  # Add this line
+    path('password_change/', include('django.contrib.auth.urls')),
     path('password_reset/', include('django.contrib.auth.urls')),
+    path('admin/show_queries/<int:article_id>/', views.show_queries, name='show_queries'),  # Ensure this line is present
 ]
