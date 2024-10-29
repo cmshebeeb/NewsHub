@@ -6,6 +6,9 @@ class Article(models.Model):
     category = models.CharField(max_length=100)
     title = models.CharField(max_length=200)
     content = models.TextField()
+    def save(self, *args, **kwargs):
+        self.category = self.category.capitalize()
+        super(Article, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -16,3 +19,8 @@ class UserPreferences(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.category}"
+    
+
+
+
+

@@ -11,6 +11,7 @@
         <p>Username: {{ user.username }}</p>
         <p>Email: {{ user.email }}</p>
         <a href="{% url 'preferences' %}" class="btn btn-info">Edit Preferences</a>
+        <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>
     </div>
 </body>
 </html>

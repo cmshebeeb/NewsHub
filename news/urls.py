@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.contrib.auth.views import LogoutView
 
@@ -8,5 +8,7 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('preferences/', views.preferences, name='preferences'),
     path('profile/', views.profile, name='profile'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', views.logout_view, name='logout'),
+    path('password_change/', include('django.contrib.auth.urls')),  # Add this line
+    path('password_reset/', include('django.contrib.auth.urls')),
 ]

@@ -11,13 +11,13 @@
 <body>
     <div class="container">
         <h1 class="my-4">NewsHub</h1>
-
+        
         <!-- Navigation Links -->
         <nav class="mb-4">
             {% if user.is_authenticated %}
                 <a href="{% url 'profile' %}" class="btn btn-primary">Profile</a>
                 <a href="{% url 'preferences' %}" class="btn btn-info">Preferences</a>
-                <form method="post" action="{% url 'logout' %}">
+                <form method="POST" action="{% url 'logout' %}" style="display: inline;">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-secondary">Logout</button>
                 </form>
@@ -27,20 +27,21 @@
             {% endif %}
         </nav>
 
+        <!-- Search Form -->
+        <form method="GET" action="" class="mb-4">
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+
         <!-- Preferences Form -->
         <form method="GET" action="" class="mb-4">
             <div class="form-group">
                 <label for="category">Preferred Category:</label>
                 <select id="category" name="category" class="form-control">
-                    <option value="" {% if not category %}selected{% endif %}>All News</option>
-                    <option value="Technology" {% if category == "Technology" %}selected{% endif %}>Technology</option>
-                    <option value="Business" {% if category == "Business" %}selected{% endif %}>Business</option>
-                    <option value="Health" {% if category == "Health" %}selected{% endif %}>Health</option>
-                    <option value="Travel" {% if category == "Travel" %}selected{% endif %}>Travel</option>
-                    <option value="Entertainment" {% if category == "Entertainment" %}selected{% endif %}>Entertainment</option>
-                    <option value="Environment" {% if category == "Environment" %}selected{% endif %}>Environment</option>
-                    <option value="Education" {% if category == "Education" %}selected{% endif %}>Education</option>
-                    <option value="Sports" {% if category == "Sports" %}selected{% endif %}>Sports</option>
+                    <option value="" {% if category == "" %}selected{% endif %}>All News</option>
+                    {% for cat in categories %}
+                        <option value="{{ cat }}" {% if category == cat %}selected{% endif %}>{{ cat }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Filter</button>
@@ -48,16 +49,33 @@
 
         <!-- News Articles -->
         <div>
-            {% for article in articles %}
+            {% for article in page_obj %}
                 <div class="card mb-3">
                     <div class="card-body">
                         <h2 class="card-title">{{ article.title }}</h2>
                         <p class="card-text">{{ article.content }}</p>
                     </div>
                 </div>
-            {% empty %}
-                <p>No articles available for this category.</p>
             {% endfor %}
+        </div>
+
+        <!-- Page Links -->
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1" class="btn">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="btn">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="btn">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}" class="btn">last &raquo;</a>
+                {% endif %}
+            </span>
         </div>
     </div>
 </body>
